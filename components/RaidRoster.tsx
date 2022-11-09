@@ -4,7 +4,7 @@ import { Player } from "lib/types";
 import { PlayerList } from "./PlayerList";
 
 type RaidRosterProps = {
-  title: string;
+  title?: string;
   tanks?: Player[];
   healers?: Player[];
   dpsers?: Player[];
@@ -16,10 +16,12 @@ export const RaidRoster: React.FC<RaidRosterProps> = ({
   healers = [],
   dpsers = [],
 }) => (
-  <Box w="100%">
-    <Heading textAlign={"center"} marginBottom={30}>
-      {title}
-    </Heading>
+  <Box w="100%" py={70}>
+    {title ? (
+      <Heading textAlign={"center"} marginBottom={30}>
+        {title}
+      </Heading>
+    ) : null}
     <SimpleGrid minChildWidth={"360px"} spacing={15}>
       <PlayerList
         title="Tanks"

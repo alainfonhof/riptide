@@ -5,21 +5,29 @@ import { Text, Container, Heading, Stack, Box } from "@chakra-ui/react";
 import { RaidRoster } from "components/RaidRoster";
 import { GetStaticProps } from "next";
 import { Player, WoWClass } from "lib/types";
+import {
+  RaidProgression,
+  Raid,
+  Boss,
+  BossStatus,
+} from "components/RaidProgression";
 
 export default function Home({
   tanks,
   healers,
   dpsers,
+  raids,
 }: {
   tanks: Player[];
   healers: Player[];
   dpsers: Player[];
+  raids: Raid[];
 }) {
   return (
     <Layout heroImage={true}>
       <Container centerContent>
         <Box className={styles.main}>
-          <Stack spacing={2}>
+          <Stack spacing={2} pb={70}>
             <Heading textAlign={"center"}>
               Riptide, #1 Nederlandse WoW guild
             </Heading>
@@ -47,13 +55,14 @@ export default function Home({
               gesprek op Discord.
             </Text>
           </Stack>
+          <RaidRoster
+            title="Raid Team"
+            tanks={tanks}
+            healers={healers}
+            dpsers={dpsers}
+          />
+          <RaidProgression title="Raid Progression" raids={raids} />
         </Box>
-        <RaidRoster
-          title="Raid Team"
-          tanks={tanks}
-          healers={healers}
-          dpsers={dpsers}
-        />
       </Container>
 
       <footer className={styles.footer}>
@@ -94,11 +103,84 @@ export const getStaticProps: GetStaticProps = async () => {
     { name: "Dps1", wowClass: WoWClass.DemonHunter },
     { name: "Dps2", wowClass: WoWClass.Hunter },
   ];
+  const raids: Raid[] = [
+    {
+      title: "Castle Nathria",
+      bosses: [],
+      slug: "castle-nathria",
+      backgroundImageSrc: "",
+    },
+    {
+      title: "Sanctum of Domination",
+      bosses: [],
+      slug: "sanctum-of-domination",
+      backgroundImageSrc: "",
+    },
+    {
+      title: "Vault of the Incarnates",
+      bosses: [
+        {
+          title: "Eranog",
+          status: BossStatus.NotStarted,
+          slug: "eranog",
+          imageSrc: "/images/raids/vault-of-the-incarnates/Eranog.png",
+        },
+        {
+          title: "Terros",
+          status: BossStatus.NotStarted,
+          slug: "terros",
+          imageSrc: "/images/raids/vault-of-the-incarnates/Terros.png",
+        },
+        {
+          title: "The Primal Council",
+          status: BossStatus.NotStarted,
+          slug: "the-primal-council",
+          imageSrc: "/images/raids/vault-of-the-incarnates/Primal-Council.png",
+        },
+        {
+          title: "Sennarth, The Cold Breath",
+          status: BossStatus.NotStarted,
+          slug: "sennarth-the-cold-breath",
+          imageSrc: "/images/raids/vault-of-the-incarnates/Sennarth.png",
+        },
+        {
+          title: "Dathea, Ascended",
+          status: BossStatus.NotStarted,
+          slug: "dathea-ascended",
+          imageSrc: "/images/raids/vault-of-the-incarnates/Dathea-Ascended.png",
+        },
+        {
+          title: "Kurog Grimtotem",
+          status: BossStatus.NotStarted,
+          slug: "kurog-grimtotem",
+          imageSrc: "/images/raids/vault-of-the-incarnates/Kurog-Grimtotem.png",
+        },
+        {
+          title: "Broodkeeper Diurna",
+          status: BossStatus.NotStarted,
+          slug: "broodkeeper-diurna",
+          imageSrc:
+            "/images/raids/vault-of-the-incarnates/Broodkeeper-Diurna.png",
+        },
+        {
+          title: "Raszageth the Storm-Keeper",
+          status: BossStatus.NotStarted,
+          slug: "raszageth-the-storm-keeper",
+          imageSrc: "/images/raids/vault-of-the-incarnates/Raszageth.png",
+        },
+      ],
+      slug: "vault-of-the-incarnates",
+      backgroundImageSrc:
+        "/images/raids/vault-of-the-incarnates/loadscreen_vaultoftheincarnates.webp",
+      isCurrent: true,
+    },
+  ];
   return {
     props: {
       tanks,
       healers,
       dpsers,
+      raids,
     },
   };
 };
