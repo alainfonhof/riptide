@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Divider, Flex } from "@chakra-ui/react";
 import * as React from "react";
 import { Footer } from "./Footer";
 import { Main } from "./Main";

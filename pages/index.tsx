@@ -26,7 +26,7 @@ export default function Home({
   return (
     <Layout heroImage={true}>
       <Container centerContent>
-        <Box className={styles.main}>
+        <Box>
           <Stack spacing={2} pb={70}>
             <Heading textAlign={"center"}>
               Riptide, #1 Nederlandse WoW guild
@@ -64,28 +64,6 @@ export default function Home({
           <RaidProgression title="Raid Progression" raids={raids} />
         </Box>
       </Container>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              width={72}
-              height={16}
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
-          </span>
-        </a>
-      </footer>
     </Layout>
   );
 }
