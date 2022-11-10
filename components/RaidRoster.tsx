@@ -22,7 +22,7 @@ export const RaidRoster: React.FC<RaidRosterProps> = ({
         {title}
       </Heading>
     ) : null}
-    <SimpleGrid minChildWidth={"360px"} spacing={15}>
+    <SimpleGrid minChildWidth={330} spacing={15}>
       <PlayerList
         title="Tanks"
         players={tanks}
@@ -30,16 +30,19 @@ export const RaidRoster: React.FC<RaidRosterProps> = ({
           src: "/images/tank.png",
           alt: "tank-icon",
         }}
+        boxProps={{ maxW: 345 }}
       />
       <PlayerList
         title="Healers"
         imageProps={{ src: "/images/healer.png", alt: "heal-icon" }}
         players={healers}
+        boxProps={{ maxW: 345 }}
       />
       <PlayerList
         title="DPS"
         imageProps={{ src: "/images/dps.png", alt: "dps-icon" }}
         players={dpsers}
+        boxProps={{ maxW: 345 }}
       />
     </SimpleGrid>
   </Box>

@@ -1,3 +1,10 @@
+export type MythicPlusTeam = {
+  name: string;
+  description?: string;
+  players: Player[];
+  score: number;
+};
+
 export type Player = {
   name: string;
   wowClass: WoWClass;

@@ -5,13 +5,19 @@ import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import { HeroWithImageBackground } from "./HeroWithImageBackground";
 import Head from "next/head";
+import { PageHeaderWithCTA } from "./PageHeaderWithCTA";
 
 type LayoutProps = {
   children: React.ReactNode;
   heroImage?: boolean;
+  pageHeader?: boolean;
 };
 
-export const Layout: React.FC<LayoutProps> = ({ children, heroImage }) => {
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  heroImage,
+  pageHeader,
+}) => {
   return (
     <Flex direction="column" flex="1">
       <Head>
@@ -24,9 +30,9 @@ export const Layout: React.FC<LayoutProps> = ({ children, heroImage }) => {
       </Head>
       <Navbar />
       {heroImage ? (
-        <>
-          <HeroWithImageBackground />
-        </>
+        <HeroWithImageBackground />
+      ) : pageHeader ? (
+        <PageHeaderWithCTA />
       ) : (
         <></>
       )}

@@ -40,7 +40,6 @@ export const Navbar: React.FC<{}> = () => {
   const { rootProps } = useNavbar();
   const isDesktop = useBreakpointValue({ base: false, lg: true });
   const MenuIcon = isOpen ? MdClose : FiMenu;
-  // WIP : https://pro.chakra-ui.com/components/marketing/navbars
   return (
     <Box
       as="nav"
@@ -78,6 +77,7 @@ export const Navbar: React.FC<{}> = () => {
               </HStack>
             </Flex>
           ) : (
+            // Mobile menu to toggle the Drawer
             <IconButton
               ref={menuButtonRef}
               variant="ghost"
@@ -88,6 +88,7 @@ export const Navbar: React.FC<{}> = () => {
           )}
         </HStack>
       </Container>
+      {/* Drawer for mobile menu */}
       <Drawer
         placement="left"
         initialFocusRef={menuButtonRef}
@@ -104,7 +105,7 @@ export const Navbar: React.FC<{}> = () => {
                 ref={menuButtonRef}
                 variant="ghost"
                 icon={<Icon as={MenuIcon} fontSize="2xl" />}
-                aria-label="Open Menu"
+                aria-label="Close Menu"
                 onClick={onClose}
               />
             </Flex>

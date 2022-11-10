@@ -5,12 +5,7 @@ import { Text, Container, Heading, Stack, Box } from "@chakra-ui/react";
 import { RaidRoster } from "components/RaidRoster";
 import { GetStaticProps } from "next";
 import { Player, WoWClass } from "lib/types";
-import {
-  RaidProgression,
-  Raid,
-  Boss,
-  BossStatus,
-} from "components/RaidProgression";
+import { RaidProgression, Raid, BossStatus } from "components/RaidProgression";
 
 export default function Home({
   tanks,
@@ -24,7 +19,7 @@ export default function Home({
   raids: Raid[];
 }) {
   return (
-    <Layout heroImage={true}>
+    <Layout heroImage>
       <Container centerContent>
         <Box>
           <Stack spacing={2} pb={70}>

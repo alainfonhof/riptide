@@ -43,7 +43,7 @@ export const HeroWithImageBackground: React.FC<{}> = () => (
               textTransform={"uppercase"}
               leftIcon={<AiOutlineForm />}
             >
-              Apply
+              Apply Now
             </Button>
             <HStack
               as="a"
