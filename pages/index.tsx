@@ -31,7 +31,7 @@ export default function Home({
             <Heading textAlign={"center"}>
               Riptide, #1 Nederlandse WoW guild
             </Heading>
-            <Text>
+            <Text color={"muted"}>
               Bij Riptide staat de community centraal. Daarom zetten we ons in
               om samen te streven naar beter. Met deze aanpak willen wij spelers
               in staat stellen om op het hoogste niveau te presteren,
@@ -43,7 +43,7 @@ export default function Home({
               realm.
             </Text>
 
-            <Text>
+            <Text color={"muted"}>
               Naast World of Warcraft spelen we ook geregeld andere spellen, op
               deze manier proberen we ons voltallig Nederlandse/Belgische
               community zo actief en gezellig mogelijk te houden. Buiten het

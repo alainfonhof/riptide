@@ -11,6 +11,7 @@ import {
 import * as React from "react";
 import Image from "next/image";
 import { HiChevronRight } from "react-icons/hi";
+import { AiOutlineForm } from "react-icons/ai";
 
 export const HeroWithImageBackground: React.FC<{}> = () => (
   <Box bg="gray.800" as="section" minH="140px" position="relative">
@@ -39,6 +40,8 @@ export const HeroWithImageBackground: React.FC<{}> = () => (
               size="lg"
               fontSize="md"
               fontWeight="bold"
+              textTransform={"uppercase"}
+              leftIcon={<AiOutlineForm />}
             >
               Apply
             </Button>
