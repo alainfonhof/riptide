@@ -17,7 +17,15 @@ export default function Teams({
   teams: MythicPlusTeam[];
 }) {
   return (
-    <Layout pageHeader>
+    <Layout
+      pageHeader
+      pageHeaderWithCTAProps={{
+        title: "Meet the team",
+        highlightQuery: "Meet",
+        description:
+          "If you want to join any of the teams then join our Discord.",
+      }}
+    >
       <Container centerContent>
         <RaidRoster
           title="Raid Team"

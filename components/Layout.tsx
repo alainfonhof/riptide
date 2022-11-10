@@ -5,18 +5,20 @@ import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import { HeroWithImageBackground } from "./HeroWithImageBackground";
 import Head from "next/head";
-import { PageHeaderWithCTA } from "./PageHeaderWithCTA";
+import { PageHeaderWithCTA, PageHeaderWithCTAProps } from "./PageHeaderWithCTA";
 
 type LayoutProps = {
   children: React.ReactNode;
   heroImage?: boolean;
   pageHeader?: boolean;
+  pageHeaderWithCTAProps?: PageHeaderWithCTAProps;
 };
 
 export const Layout: React.FC<LayoutProps> = ({
   children,
   heroImage,
   pageHeader,
+  pageHeaderWithCTAProps,
 }) => {
   return (
     <Flex direction="column" flex="1">
@@ -32,7 +34,7 @@ export const Layout: React.FC<LayoutProps> = ({
       {heroImage ? (
         <HeroWithImageBackground />
       ) : pageHeader ? (
-        <PageHeaderWithCTA />
+        <PageHeaderWithCTA {...pageHeaderWithCTAProps} />
       ) : (
         <></>
       )}

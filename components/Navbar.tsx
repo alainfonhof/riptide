@@ -59,7 +59,9 @@ export const Navbar: React.FC<{}> = () => {
               <ButtonGroup variant="link" spacing="8">
                 {pages.map((item) => (
                   <Link href={item.href} key={item.href} legacyBehavior>
-                    <Button as="a">{item.title}</Button>
+                    <Button as="a" cursor={"pointer"}>
+                      {item.title}
+                    </Button>
                   </Link>
                 ))}
               </ButtonGroup>

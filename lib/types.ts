@@ -25,3 +25,9 @@ export enum WoWClass {
   "Warlock" = "Warlock",
   "Warrior" = "Warrior",
 }
+
+export type Streamer = {
+  name: string;
+  twitchUsername: string;
+  avatarSrc?: string;
+};

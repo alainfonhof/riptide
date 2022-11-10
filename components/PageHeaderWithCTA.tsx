@@ -11,7 +11,17 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 
-export const PageHeaderWithCTA: React.FC<{}> = () => (
+export type PageHeaderWithCTAProps = {
+  title?: string;
+  description?: string;
+  highlightQuery?: string;
+};
+
+export const PageHeaderWithCTA: React.FC<PageHeaderWithCTAProps> = ({
+  title,
+  description,
+  highlightQuery,
+}) => (
   <Box as="section" py={{ base: "16", md: "24" }} position="relative">
     <Flex
       id="image-wrapper"
@@ -42,20 +52,27 @@ export const PageHeaderWithCTA: React.FC<{}> = () => (
       <Stack spacing={{ base: "8", md: "10" }}>
         <Stack spacing={{ base: "4", md: "6" }}>
           <Stack spacing="3">
-            <Heading
-              size={useBreakpointValue({ base: "md", md: "lg" })}
-              fontWeight="semibold"
-              textTransform={"uppercase"}
-              color="white"
-            >
-              <Highlight query="Meet" styles={{ px: "15px", bg: "blue.100" }}>
-                Meet the team
-              </Highlight>
-            </Heading>
+            {title ? (
+              <Heading
+                size={useBreakpointValue({ base: "md", md: "lg" })}
+                fontWeight="semibold"
+                textTransform={"uppercase"}
+                color="white"
+              >
+                <Highlight
+                  query={highlightQuery}
+                  styles={{ px: "15px", bg: "blue.100" }}
+                >
+                  {title}
+                </Highlight>
+              </Heading>
+            ) : null}
           </Stack>
-          <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" color="white">
-            If you want to join any of the teams then join our Discord.
-          </Text>
+          {description ? (
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" color="white">
+              {description}
+            </Text>
+          ) : null}
         </Stack>
       </Stack>
     </Container>
